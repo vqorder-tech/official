@@ -1,0 +1,14 @@
+mixin Product({imgSrc, pdfSrc, fileName, productTitle, description})
+	.product-card.swiper-slide.border.border-success
+		.product-card-top(style=`background-image: url('${CWD}${imgSrc}')`)
+			.add-section
+				a(href=`${pdfSrc}`, download=`${fileName}`).fs-10.fs-md-9.d-flex.flex-column.flex-xl-row.align-items-center
+					span.uil.uil-cloud-download.me-1.align-middle
+					| Datasheet Download
+				
+				a(href=`${pdfSrc}`,target="_blank").fs-10.fs-md-9.d-flex.flex-column.flex-xl-row.align-items-center.text-success.fw-bold
+					span.uil.uil-eye.me-1.align-middle
+					| Watch Online
+		.d-flex.flex-column.gap-x1.p-x1.product-card-body
+			h3.text-success.fw-semi-bold.text-center.line-clamp-1.fs-8.fs-md-11.fs-xxl-7.mb-0= productTitle 
+			p.text-dark.fs-10.fs-md-9.fs-xl-9.text-capitalize.lh-xl.mb-0.line-clamp-6= description 

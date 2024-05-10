@@ -1,0 +1,35 @@
+.Footer {
+    position: relative !important;
+    min-height: 10vh;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    .links{
+        color: rgba(255, 255, 255, 0.70);
+        font-size: map-get($font-sizes, 9);
+        line-height: normal;
+        font-weight: $font-weight-medium;
+        
+        @include media-breakpoint-up(md) {
+            font-size: map-get($font-sizes, 8 );
+        }
+        @include hover-focus {
+            color: $white;
+            font-weight: $font-weight-semi-bold;
+        }
+    }
+
+    @include media-breakpoint-up(md){
+        background-position: center;
+    }
+    .social-icon{
+        color: $white;
+        &:hover, &:focus, &:active{
+            color: map-get($theme-colors, 'secondary');
+        }
+    }
+}

@@ -1,0 +1,36 @@
+mixin Review({name, mobile, email, address})
+  .review-card
+    div 
+      h2.text-success.fs-9.fs-md-8.fw-bold.mb-1
+        | Director 
+      p.text-black.fs-10.fs-md-9.mb-0.mb-3= name
+      h2.text-success.fs-9.fs-md-8.fw-bold.mb-1
+        | Mobile 
+      p.text-black.fs-10.fs-md-9.mb-0.mb-3= mobile
+      h2.text-success.fs-9.fs-md-8.fw-bold.mb-1
+        | E-Mail 
+      p.text-black.fs-10.fs-md-9.mb-0.mb-3= email
+      h2.text-success.fs-9.fs-md-8.fw-bold.mb-1
+        | Address 
+      p.text-black.fs-10.fs-md-9.mb-0.mb-3= address
+
+
+mixin Reviews
+  - 
+    var reviewItems = [
+      {
+        name: 'Kenny Chen',
+        mobile: '+886 915-453-636',
+        email: 'cancer52049@gmail.com',
+        address: `Rm. 1301, 13F., No. 502, Sec. 2, Ren'ai Rd., Linkou Dist., New Taipei City`
+      }
+    ];
+
+  section#contact.mb-9.mb-lg-10.mb-xxl-11
+    h3.mb-3.pt-6.fs-8.fs-md-7.fs-xxl-6.text-success.fw-bold.text-center.text-lg-start.text-capitalize Contact Us 
+    .row.g-4.g-lg-6.g-xl-7.align-items-center
+      .col-12.col-lg-6
+        each item in reviewItems
+          +Review(item)
+      .col-lg-6.d-block.text-center
+        img(src=`${CWD}assets/img/Hero/hero2.png`, alt="").img-fluid

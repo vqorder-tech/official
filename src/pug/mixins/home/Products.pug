@@ -1,0 +1,65 @@
+include ./Product
+
+append variables
+
+	- 
+		var products = {
+			new: [
+				{
+					imgSrc: 'assets/img/products/wifi_ip_camera/1.png',
+					pdfSrc: 'assets/pdf/wifi_ip_camera/1.pdf',
+					fileName: '2MP_3MP_5MP_WIFI_Dome.pdf',
+					productTitle: '2MP 3MP 5MP WIFI Dome', 
+					description: "Intelligent human detection network camera,Smart H.265,H.264,support two way intercom,support voice&light alert,support to draw area to alarm,ONVIF,D-WDR,3D DNR, 4 pcs  dual lights board, night vision 15M,4mm fixed lens, support TF card slot（512G) for local storage and reset function."
+				},
+				{
+					imgSrc: 'assets/img/products/wifi_ip_camera/2.png',
+					pdfSrc: 'assets/pdf/wifi_ip_camera/2.pdf',
+					fileName: '2MP_WIFI_Dome_IP_Camera.pdf',
+					productTitle: '2MP WIFI Dome IP Camera', 
+					description: "Intelligent human detection network camera,Smart H.265,H.264,support two way intercom,support voice&light alert,support to draw area to alarm,ONVIF,D-WDR,3D DNR, 18 pcs  IR lights board, night vision 20M,2.8-12mm Motorized lens, support TF card(512G) for local storage and reset function."
+				},
+				{
+					imgSrc: 'assets/img/products/wifi_ip_camera/3.png',
+					pdfSrc: 'assets/pdf/wifi_ip_camera/3.pdf',
+					fileName: '2MP_3MP_5MP_WIFI_Bullet.pdf',
+					productTitle: '2MP 3MP 5MP WIFI Bullet', 
+					description: "Intelligent human detection network camera,H.265,H.264,3mp and 5mp option, support two way intercom,support to connect 3W amplifier board to realize voice&light alert,support to draw area to alarm,ONVIF,D-WDR,3D DNR,4 pcs dual lights, night vision 20M, support MIC and speaker, TF card slot (512G) for local storage."
+				},
+				{
+					imgSrc: 'assets/img/products/wifi_ip_camera/4.png',
+					pdfSrc: 'assets/pdf/wifi_ip_camera/4.pdf',
+					fileName: '2MP_WIFI_Bullet_IP_Camera.pdf',
+					productTitle: '2MP WIFI Bullet IP Camera', 
+					description: 'Intelligent human detection network camera, H.265,H.264,support two way intercom,support voice&light alert,support to draw area to alarm,ONVIF,D-WDR,3D DNR, dual lights board, night vision 25M, 3.6mm fixed lens, support TF card and reset function.'
+				}
+			],
+		}
+
+mixin Products 
+
+	section#products.mb-9.mb-lg-10.mb-xxl-11.text-center.text-md-start
+		h3.mb-x1.fs-8.fs-md-7.fs-xxl-6.text-success.fw-bold Product Catalog
+
+		#slider-1.mb-6.mb-lg-7.mb-xl-10 
+			h1.fs-5.fs-md-3.fs-xxl-2.text-secondary.text-capitalize.fw-light.mb-13.mb-lg-7    
+				span.fw-bold WIFI IP Camera
+			.mb-4.mb-lg-0
+				.swiper-theme-container.position-relative
+					.swiper-container.theme-slider(data-swiper!={
+						spaceBetween:32,
+						loop:true,
+						loopedSlides:4,
+						breakpoints:{
+							0:{slidesPerView: 1}, 
+							768:{slidesPerView: 2}, 
+							1024: {slidesPerView: 3}}
+						})
+						.swiper-wrapper
+							each product in products.new 
+								+Product(product)
+					.slider-nav
+						button(data-slider="slider-1").btn.prev-button
+							span.uil.uil-angle-left-b
+						button(data-slider="slider-1").btn.next-button
+							span.uil.uil-angle-right-b
